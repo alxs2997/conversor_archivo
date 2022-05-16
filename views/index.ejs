@@ -8,19 +8,35 @@
     <title><%=title%></title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ConvertidorBD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    </div>
+  </div>
+</nav>
+<br>
     <div class="container">
-        <h2 class="text-center">
+        <h4 class="text-center">
             Convertidor de archivos para Bases de Datos.
-        </h2>
+        </h4>
         <form id="form1" action="/convertir" method="post" encType="multipart/form-data">
+             
             <div class="form-group">
                 <lavel for="json">Añade archivos con extensión: '.json', '.xml','.xls'</lavel>
                 <div class="form-group">
-                <input  type="file" name="addfile" id="addfile" class="btn btn-primary btn-block">
+                <input  type="file" name="addfile" id="addfile" class="btn btn-outline-dark btn-block">
             </div>
-            <div class="form-group">
+            <textarea class="form-control" name="json" cols="20" rows="5" placeholder="Se muestra una vista previa..."></textarea>
+            <br>
+            <div class="form-select">
+                        <label for="browser" class="form-label">Escoge una opción:</label>
                         <select id="tipoData" name="tipoData"class="form-select" aria-label="5md">
-                        <option selected>Elige un tipo de archivo:</option>
+                        <option selected disable>Elige un tipo de archivo:</option>
                         <option value="1">Json</option>
                         <option value="2">xml</option>
                         <option value="3">csv</option>
