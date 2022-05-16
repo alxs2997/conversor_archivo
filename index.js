@@ -33,6 +33,9 @@ app.post('/convertir', (req, res) => {
   if (tipoData == 1 && fileExt == 'xml'){
     xmlToJson(archivoData)
   }
+  else if (tipoData == 3 && fileExt == 'csv'){
+    jsonToCsv(archivoData)
+  }
   else if (tipoData == 4 && fileExt == 'json'){
     jsonToExcel(archivoData)
   } 

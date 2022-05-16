@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">
-            Convertidor de archivos.
-        </h1>
+        <h2 class="text-center">
+            Convertidor de archivos para Bases de Datos.
+        </h2>
         <form id="form1" action="/convertir" method="post" encType="multipart/form-data">
             <div class="form-group">
-                <lavel for="json">ARCHIVOS JSON, XML, Excel:</lavel>
+                <lavel for="json">Añade archivos con extensión: '.json', '.xml','.xls'</lavel>
                 <div class="form-group">
                 <input  type="file" name="addfile" id="addfile" class="btn btn-primary btn-block">
             </div>
@@ -79,6 +79,7 @@
         const tipoData = document.getElementById("tipoData")
 
         let selectExt = tipoData.options[tipoData.selectedIndex].text.toLowerCase()
+        const alertTrigger = document.getElementById("btnDownload")
 
         if(ext == selectExt){
             alert("No se puede realizar la conversión entre archivos de la misma extensión")
