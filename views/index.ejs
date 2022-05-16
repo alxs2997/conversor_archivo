@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title><%=title%></title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">
+            Convertidor de archivos.
+        </h1>
+        <form id="form1" action="/convertir" method="post" encType="multipart/form-data">
+            <div class="form-group">
+                <lavel for="json">ARCHIVOS JSON, XML, Excel:</lavel>
+                <div class="form-group">
+                <input  type="file" name="addfile" id="addfile" class="btn btn-primary btn-block">
+            </div>
+            <div class="form-group">
+                        <select id="tipoData" name="tipoData"class="form-select" aria-label="5md">
+                        <option selected>Elige un tipo de archivo:</option>
+                        <option value="1">Json</option>
+                        <option value="2">xml</option>
+                        <option value="3">csv</option>
+                        <option value="4">Excel</option>
+                        </select>
+            </div>
+            </div>
+            <div class="form-group">
+                <button id="btnDownload" class="btn btn-success btn-block">
+                    Descargar el Archivo <span id="tipoText"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+
+    <script>
+        const tipoData = document.getElementById("tipoData")
+        const tipoText = document.getElementById("tipoText")
+       
+
+
+        tipoData.addEventListener("change",(e) =>{
+            console.log(e.target.value)
+            //tipoText.innerText = e.target.value
+            let valor = e.target.value
+
+            if(valor == 1){
+                tipoText.innerText = "Json"
+            }
+            else if( valor == 2){
+                tipoText.innerText = "xml"
+            }
+            else if( valor == 3){
+                tipoText.innerText = "csv"
+            }
+            else if ( valor == 4){
+                tipoText.innerText = "Excel"
+            }
+            else{
+                tipoText.innerText = ""
+            }    
+        })
+    </script>
+    <script>
+    const form1 = document.getElementById('form1')
+
+    form1.addEventListener('submit',(e)=>{
+        e.preventDefault()
+
+        let ext = document.getElementById('addfile')
+
+        ext = ext.value.split('\\')[2].split('.')[1]
+        
+        const tipoData = document.getElementById("tipoData")
+
+        let selectExt = tipoData.options[tipoData.selectedIndex].text.toLowerCase()
+
+        if(ext == selectExt){
+            alert("No se puede realizar la conversión entre archivos de la misma extensión")
+
+            return false
+        }
+        form1.submit()
+    })
+    </script>
+</body>
+</html>
