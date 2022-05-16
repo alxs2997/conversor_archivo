@@ -1,6 +1,6 @@
 complementos de desarrollo:
 
-idea de implementación o realizació: https://www.convertjson.com/json-to-xml.htm
+idea de implementación o realización: https://www.convertjson.com/json-to-xml.htm
 
 https://www.npmjs.com/package/json2csv (extensión para conversión de archivos json a csv)
 
